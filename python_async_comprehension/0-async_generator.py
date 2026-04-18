@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """
-Module that implements an async generator.
+Module that implements an asynchronous generator.
 """
 
 import asyncio
 import random
-from typing import Generator
+from typing import AsyncGenerator
 
 
-async def async_generator() -> Generator[float, None, None]:
+async def async_generator() -> AsyncGenerator[float, None]:
     """
-    Asynchronously yields 10 random numbers between 0 and 10,
-    waiting 1 second between each yield.
+    Yield 10 random numbers between 0 and 10 asynchronously,
+    waiting 1 second before each yield.
     """
     for _ in range(10):
         await asyncio.sleep(1)
