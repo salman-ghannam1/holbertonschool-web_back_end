@@ -1,2 +1,2 @@
-// Delete documents
-db.school.remove({ name: "Holberton school" })
+// my comment
+db.school.remove({name: "Holberton school"})
