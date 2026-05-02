@@ -1,4 +1,2 @@
-// Scrpit that inserts a Doc in the school Collection
-db.school.deleteMany(
-	{ name:"Holberton school" }
-)
+// Delete all 'Holberton school' documents
+db.school.deleteMany({"name": "Holberton school"})
