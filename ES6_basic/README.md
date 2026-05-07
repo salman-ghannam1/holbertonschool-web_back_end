@@ -1,269 +1,171 @@
-# holbertonschool-web_back_end
+ES6 Basic
+This project covers the fundamentals of modern JavaScript using ES6 (ECMAScript 2015) features.
+The goal of this project is to understand the new syntax and concepts introduced in ES6 and how they improve JavaScript development.
 
-Python Type Annotations Project
-📌 Description
-This project focuses on understanding and applying type annotations in Python 3.
-It demonstrates how to write clean, readable, and maintainable code by specifying variable types and function signatures.
-The project also introduces duck typing and the use of mypy for static type checking.
+Learning Objectives
+By the end of this project, you should be able to explain:
+•
+What ES6 is
+•
+The new features introduced in ES6
+•
+The difference between var, let, and const
+•
+Block scope in JavaScript
+•
+Arrow functions
+•
+Default function parameters
+•
+Rest and spread operators
+•
+Template literals
+•
+Object property shorthand syntax
+•
+Computed property names
+•
+ES6 method properties
+•
+Iterators and for...of loops
+•
+How modules work using export and import
 
-🎯 Learning Objectives
-By completing this project, you will be able to:
-•
-Understand and use type annotations in Python 3
-•
-Define function signatures with proper types
-•
-Apply the concept of duck typing
-•
-Validate Python code using mypy
-•
-Write well-documented and structured Python modules
-
-🛠️ Requirements
-•
-Python 3.9
+Requirements
 •
 Ubuntu 20.04 LTS
 •
-Code editor (vi, vim, or emacs)
+Node.js 20.x.x
 •
-pycodestyle (version 2.5)
+npm 9.x.x or higher
 •
-mypy (for type checking)
-
-📂 Project Structure
-Each Python file in this project:
+All files must use the .js extension
 •
-Starts with:
-#!/usr/bin/env python3
+Code should follow ESLint rules
 •
-Ends with a new line
-•
-Is executable
-•
-Contains proper documentation (docstrings):
-•
-Module level
+Testing is done using Jest
 
-✍️ Example
-Basic Type Annotation
-def add(a: float, b: float) -> float:
-"""Returns the sum of two floating-point numbers."""
-return a + b
+Project Setup
+Install Node.js
+Bash
+نسخ
+curl -sL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt install nodejs -y
+Check installation:
+Bash
+نسخ
+node -v
+npm -v
 
-🦆 Duck Typing
-Python follows a flexible typing system:
-"If it behaves like a duck, it is a duck."
-Example:
-def get_length(obj):
-return len(obj)
-This function works with any object that supports len().
+Install Dependencies
+Inside the project directory:
+Bash
+نسخ
+npm install
+Or manually:
+Bash
+نسخ
+npm install --save-dev jest
+npm install --save-dev babel-jest @babel/core @babel/preset-env
+npm install --save-dev eslint
 
-🔍 Type Checking with mypy
-To check your code:
-mypy your_file.py
-Example error:
-add("hello", 5) # Invalid: string instead of float
-
-📏 Code Style
-All code must follow pycodestyle (v2.5):
-pycodestyle your_file.py
-
-📚 Documentation
-Every module, class, and function must include a clear and meaningful docstring.
-Example:
-"""This module provides basic mathematical operations."""
-
-🚀 Conclusion
-This project builds a strong foundation for writing clean, typed, and maintainable Python code, preparing you for real-world software development and large-scale projects.
-
-# Python Async Functions
-
-## 📌 Project Overview
-
-This project introduces **asynchronous programming in Python** using the `asyncio` library.
-The goal is to understand how to write non-blocking code, run concurrent tasks, and improve performance when dealing with I/O-bound operations.
-
----
-
-## 🎯 Learning Objectives
-
-By completing this project, you should be able to explain:
-
-- The purpose of `async` and `await`
-- How to execute asynchronous programs using `asyncio`
-- The difference between coroutines and tasks
-- How to run concurrent coroutines
-- How to create and manage `asyncio` tasks
-- How to measure runtime of async operations
-- How to use the `random` module in async contexts
-
----
-
-## 🧠 Key Concepts
-
-### 1. Asynchronous Programming
-
-Asynchronous programming allows multiple operations to run concurrently without blocking the execution flow.
-It is especially useful for:
-
-- Network requests
-- File I/O
-- APIs
-- Distributed systems
-
----
-
-### 2. Coroutines
-
-A coroutine is a function defined using `async def`.
-It does not execute immediately but returns a coroutine object.
-
-```python
-async def example():
-    await something()
-```
-
----
-
-### 3. Event Loop
-
-The event loop is responsible for:
-
-- Scheduling tasks
-- Running coroutines
-- Managing execution flow
-
-```python
-import asyncio
-asyncio.run(main())
-```
-
----
-
-### 4. Tasks
-
-A Task is a wrapper around a coroutine that schedules its execution.
-
-```python
-task = asyncio.create_task(coroutine())
-```
-
----
-
-### 5. Concurrency vs Parallelism
-
-- **Concurrency**: Tasks run in overlapping time
-- **Parallelism**: Tasks run at the exact same time (multi-core)
-
-This project focuses on concurrency.
-
----
-
-## 📁 Project Structure
-
-```
-python_async_function/
+Project Structure
+نسخ
+ES6_basic/
 │
-├── 0-basic_async_syntax.py
-├── 1-concurrent_coroutines.py
-├── 2-measure_runtime.py
-├── 3-tasks.py
-├── 4-tasks.py
+├── 0-constants.js
+├── 1-block-scoped.js
+├── 2-arrow.js
+├── 3-default-parameter.js
+├── 4-rest-parameter.js
+├── 5-spread-operator.js
+├── 6-string-interpolation.js
+├── 7-getBudgetObject.js
+├── 8-getBudgetCurrentYear.js
+├── 9-getFullBudget.js
+├── 10-loops.js
+├── 11-createEmployeesObject.js
+├── 12-createReportObject.js
+│
+├── package.json
+├── babel.config.js
+├── .eslintrc.js
 └── README.md
-```
 
----
+ES6 Features Used
+const and let
+JavaScript
+نسخ
+const name = 'Salman';
+let age = 25;
 
-## 📚 Tasks Breakdown
+Arrow Functions
+JavaScript
+نسخ
+const add = (a, b) => a + b;
 
-### Task 0: The basics of async
+Default Parameters
+JavaScript
+نسخ
+function sum(a = 0, b = 0) {
+return a + b;
+}
 
-- Create `wait_random`
-- Wait for a random delay using `asyncio.sleep`
-- Return the delay
+Rest Parameters
+JavaScript
+نسخ
+function test(...args) {
+return args.length;
+}
 
----
+Spread Syntax
+JavaScript
+نسخ
+const arr = [...array1, ...array2];
 
-### Task 1: Execute multiple coroutines
+Template Literals
+JavaScript
+نسخ
+const message = `Hello ${name}`;
 
-- Implement `wait_n`
-- Run multiple coroutines concurrently
-- Return results in ascending order using `asyncio.as_completed`
+Object Property Shorthand
+JavaScript
+نسخ
+const user = { name, age };
 
----
+Computed Property Names
+JavaScript
+نسخ
+const obj = {
+[`user-${id}`]: value,
+};
 
-### Task 2: Measure runtime
+ES6 Method Properties
+JavaScript
+نسخ
+const obj = {
+greet() {
+return 'Hello';
+},
+};
 
-- Implement `measure_time`
-- Measure total execution time of `wait_n`
-- Return average time per coroutine
+for...of Loop
+JavaScript
+نسخ
+for (const value of array) {
+console.log(value);
+}
 
----
+Running the Files
+Example:
+Bash
+نسخ
+npm run dev 0-main.js
 
-### Task 3: Tasks
+Example Output
+نسخ
+I prefer const when I can. But sometimes let is okay
 
-- Implement `task_wait_random`
-- Return an `asyncio.Task` instead of a coroutine
-
----
-
-### Task 4: Tasks with concurrency
-
-- Implement `task_wait_n`
-- Similar to `wait_n` but uses tasks instead of coroutines
-
----
-
-## ⚙️ Requirements
-
-- Python 3.9 (Ubuntu 20.04 LTS)
-- All files must be executable
-- Code must follow `pycodestyle` (v2.5.x)
-- All functions must be type-annotated
-- All modules and functions must include proper documentation
-- First line of every file must be:
-
-```bash
-#!/usr/bin/env python3
-```
-
----
-
-## 🧪 Example Usage
-
-```python
-import asyncio
-from 1-concurrent_coroutines import wait_n
-
-print(asyncio.run(wait_n(5, 5)))
-```
-
----
-
-## 🚀 Performance Insight
-
-Using async execution:
-
-- Total runtime ≈ max delay
-- Instead of sum of delays
-
-This significantly improves performance in real-world systems.
-
----
-
-## 📌 Real-World Applications
-
-- Web APIs (FastAPI, aiohttp)
-- Microservices
-- Data pipelines
-- Event-driven architectures
-- Distributed systems
-
----
-
-## 👨‍💻 Author
-
-This project is part of the Holberton School curriculum for backend engineering.
-
----
+Author
+Salman Al-Mutairi
