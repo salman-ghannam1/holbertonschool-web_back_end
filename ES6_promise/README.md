@@ -1,31 +1,55 @@
-ES6 Classes
-This project focuses on Object-Oriented Programming (OOP) concepts in modern JavaScript using ES6 Classes.
-The goal of this project is to understand how classes, inheritance, getters/setters, static methods, symbols, and metaprogramming work in JavaScript.
+ES6 Promises
+This project focuses on asynchronous programming in modern JavaScript using ES6 Promises and async features.
+The goal of this project is to understand how asynchronous operations work in JavaScript and how to properly handle success, failure, multiple promises, and errors.
 
 Learning Objectives
 By the end of this project, you should be able to explain:
 •
-How to define a class
+What a Promise is
 •
-How to create objects from a class
+Why Promises are useful
 •
-How constructors work
+Promise states:
 •
-How to add methods to a class
+pending
 •
-How getters and setters work
+fulfilled
 •
-How static methods work
+rejected
 •
-How inheritance works using extends
+How to use:
 •
-How to override methods
+then
 •
-What abstract class behavior means in JavaScript
+catch
 •
-How Symbols work in ES6
+finally
 •
-How metaprogramming works in JavaScript
+How to use:
+•
+Promise.resolve
+•
+Promise.reject
+•
+Promise.all
+•
+Promise.allSettled
+•
+Promise.race
+•
+How error handling works using:
+•
+throw
+•
+try
+•
+catch
+•
+finally
+•
+How asynchronous JavaScript works
+•
+How to use async and await
 
 Requirements
 •
@@ -37,7 +61,7 @@ npm 9.x.x or higher
 •
 All files must use the .js extension
 •
-Code should pass ESLint validation
+All code must pass ESLint validation
 •
 Tests are executed using Jest
 
@@ -63,108 +87,114 @@ Or manually:
 Bash
 نسخ
 npm install --save-dev jest
-npm install --save-dev babel-jest @babel/core @babel/preset-env
+npm install --save-dev babel-jest @babel/core @babel/preset-env @babel/cli
 npm install --save-dev eslint
 
 Project Structure
 نسخ
-ES6_classes/
+ES6_promise/
 │
-├── 0-classroom.js
-├── 1-make_classrooms.js
-├── 2-hbtn_course.js
-├── 3-currency.js
-├── 4-pricing.js
-├── 5-building.js
-├── 6-sky_high.js
-├── 7-airport.js
-├── 8-hbtn_class.js
-├── 9-hoisting.js
-├── 10-car.js
+├── 0-promise.js
+├── 1-promise.js
+├── 2-then.js
+├── 3-all.js
+├── 4-user-promise.js
+├── 5-photo-reject.js
+├── 6-final-user.js
+├── 7-load_balancer.js
+├── 8-try.js
+├── 9-try.js
 │
+├── utils.js
 ├── package.json
 ├── babel.config.js
 ├── .eslintrc.js
 └── README.md
 
-Main Concepts
-Classes
+Core Concepts
+Promise
+A Promise represents a future result of an asynchronous operation.
 JavaScript
 نسخ
-class Person {
-constructor(name) {
-this.\_name = name;
-}
-}
+const promise = new Promise((resolve, reject) => {
+resolve('Success');
+});
 
-Getters and Setters
-JavaScript
-نسخ
-get name() {
-return this.\_name;
-}
-
-set name(value) {
-this.\_name = value;
-}
-
-Inheritance
-JavaScript
-نسخ
-class Dog extends Animal {
-}
-
-Static Methods
-JavaScript
-نسخ
-class MathHelper {
-static add(a, b) {
-return a + b;
-}
-}
-Usage:
-JavaScript
-نسخ
-MathHelper.add(1, 2);
-
-Method Overriding
-JavaScript
-نسخ
-class Animal {
-speak() {
-return 'sound';
-}
-}
-
-class Dog extends Animal {
-speak() {
-return 'bark';
-}
-}
-
-Symbols
-JavaScript provides built-in Symbols used internally by the language.
-Examples:
-Symbol
-Purpose
-Symbol.iterator
-Custom iteration
-Symbol.toPrimitive
-Object conversion
-Symbol.toStringTag
-Object description
-Symbol.species
-Object cloning
+Promise States
+State
+Meaning
+pending
+Waiting
+fulfilled
+Success
+rejected
+Failed
 نسخ الجدول
 
-Metaprogramming
-Metaprogramming allows developers to customize how objects behave internally.
-Example:
+then / catch / finally
 JavaScript
 نسخ
-[Symbol.toPrimitive](hint) {
-return this.\_value;
+promise
+.then((result) => console.log(result))
+.catch((error) => console.log(error))
+.finally(() => console.log('Done'));
+
+Promise.resolve
+Creates a resolved promise.
+JavaScript
+نسخ
+Promise.resolve('Success');
+
+Promise.reject
+Creates a rejected promise.
+JavaScript
+نسخ
+Promise.reject(new Error('Failed'));
+
+Promise.all
+Waits for all promises.
+JavaScript
+نسخ
+Promise.all([promise1, promise2]);
+
+Promise.allSettled
+Returns all results even if some fail.
+JavaScript
+نسخ
+Promise.allSettled([promise1, promise2]);
+
+Promise.race
+Returns the first completed promise.
+JavaScript
+نسخ
+Promise.race([promise1, promise2]);
+
+Error Handling
+Throwing Errors
+JavaScript
+نسخ
+throw new Error('Something went wrong');
+
+Try / Catch / Finally
+JavaScript
+نسخ
+try {
+riskyFunction();
+} catch (error) {
+console.log(error);
+} finally {
+console.log('Cleanup');
 }
+
+Example
+JavaScript
+نسخ
+divideFunction(10, 2);
+// 5
+JavaScript
+نسخ
+divideFunction(10, 0);
+// Error: cannot divide by 0
 
 Running Tests
 Run a specific file:
@@ -175,17 +205,18 @@ Run all tests:
 Bash
 نسخ
 npm test
-Run full project validation:
+Run full validation:
 Bash
 نسخ
 npm run full-test
 
-Example Output
-نسخ
-[
-'Guillaume Salva - 2020 - San Francisco',
-'John Doe - 2020 - San Francisco'
-]
+Notes
+•
+Promises are the foundation of modern JavaScript asynchronous programming.
+•
+Most APIs, databases, file systems, and network operations in Node.js use Promises.
+•
+Async/await is built on top of Promises.
 
 Author
 Salman Al-Mutairi
