@@ -14,7 +14,7 @@ function countStudents(path) {
 
     const fields = {};
 
-    for (const student of students) {
+    students.forEach((student) => {
       const parts = student.split(',');
 
       const firstName = parts[0];
@@ -25,13 +25,13 @@ function countStudents(path) {
       }
 
       fields[field].push(firstName);
-    }
+    });
 
-    for (const field in fields) {
+    Object.keys(fields).forEach((field) => {
       console.log(
-        `Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`
+        `Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`,
       );
-    }
+    });
   } catch (error) {
     throw new Error('Cannot load the database');
   }
